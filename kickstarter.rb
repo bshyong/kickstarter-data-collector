@@ -52,7 +52,7 @@ while true
   projects.each do |p|
     count +=1
     puts "processing... #{p.name}"
-    output.puts(CSV.generate_line([p.name, p.description.strip, p.pledge_amount, p.pledge_percent, p.url]))
+    output.puts(CSV.generate_line([p.name, p.description.gsub(/\s+/, ' ').strip, p.pledge_amount, p.pledge_amount/p.pledge_percent/100,p.pledge_percent, p.url]))
   end
   starting_page += 1
 end
