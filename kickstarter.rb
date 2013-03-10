@@ -45,6 +45,7 @@ output = File.new("#{$filename}.csv", "a+")
 
 starting_page = 1
 count = 0
+output.puts(CSV.generate_line(["Name", "Description", "Pledge amount", "Pledge goal", "Pledge Percentage", "Project URL"]))
 
 while true
   projects = Kickstarter.by_category($category, :page => starting_page, :type => $type)
